@@ -1,0 +1,115 @@
+{
+  "name": "swyftpay",
+  "version": "0.3.0",
+  "description": "Agentic x402 Client Wrapper — automatic 402 payment handling for AI agents on Algorand",
+  "type": "module",
+  "private": true,
+  "author": {
+    "name": "Darshan Krishna N"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "swyftpay": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./client": {
+      "types": "./dist/client.d.ts",
+      "import": "./dist/client.js"
+    },
+    "./signer": {
+      "types": "./dist/signer.d.ts",
+      "import": "./dist/signer.js"
+    },
+    "./policy": {
+      "types": "./dist/policy.d.ts",
+      "import": "./dist/policy.js"
+    },
+    "./logger": {
+      "types": "./dist/logger.d.ts",
+      "import": "./dist/logger.js"
+    },
+    "./retry": {
+      "types": "./dist/retry.d.ts",
+      "import": "./dist/retry.js"
+    },
+    "./errors": {
+      "types": "./dist/errors.d.ts",
+      "import": "./dist/errors.js"
+    },
+    "./cache": {
+      "types": "./dist/cache.d.ts",
+      "import": "./dist/cache.js"
+    },
+    "./trust": {
+      "types": "./dist/trust.d.ts",
+      "import": "./dist/trust.js"
+    },
+    "./agents": {
+      "types": "./dist/agents.d.ts",
+      "import": "./dist/agents.js"
+    },
+    "./adapters": {
+      "types": "./dist/adapters.d.ts",
+      "import": "./dist/adapters.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc -p tsconfig.dev.json --noEmit",
+    "dev:server": "npx tsx examples/test-server.ts",
+    "dev:client": "npx tsx examples/basic-client.ts",
+    "demo:policy": "npx tsx examples/policy-and-logging-demo.ts",
+    "demo:retry": "npx tsx examples/retry-demo.ts",
+    "demo:all": "npx tsx examples/full-sdk-demo.ts",
+    "key:convert": "npx tsx scripts/mnemonic-to-key.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "clean": "node -e \"const{rmSync}=require('fs');rmSync('dist',{recursive:true,force:true})\""
+  },
+  "keywords": [
+    "algorand",
+    "x402",
+    "micropayments",
+    "agentic",
+    "ai-agent",
+    "payment-protocol",
+    "402",
+    "http-payments"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VihaShomikha/SwyftPay.git"
+  },
+  "dependencies": {
+    "@x402-avm/avm": "latest",
+    "@x402-avm/axios": "latest",
+    "@x402-avm/core": "latest",
+    "@x402-avm/express": "latest",
+    "@x402-avm/fetch": "latest",
+    "algosdk": "^3.0.0",
+    "axios": "^1.7.0",
+    "dotenv": "^16.4.0",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vitest": "^4.1.2"
+  }
+}

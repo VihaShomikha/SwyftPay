@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 600" fill="none">
+  <defs>
+    <linearGradient id="pp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5A0B1"/>
+      <stop offset="100%" stop-color="#B06AB3"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#161616"/>
+      <stop offset="100%" stop-color="#0c0c0c"/>
+    </linearGradient>
+    <linearGradient id="core" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a1218"/>
+      <stop offset="100%" stop-color="#0e0a0e"/>
+    </linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B06AB3" fill-opacity="0.95"/>
+    </marker>
+  </defs>
+
+  <rect width="920" height="600" rx="14" fill="#050505"/>
+
+  <!-- Top entry boxes -->
+  <rect x="42" y="28" width="160" height="60" rx="10" fill="url(#card)" stroke="#F5A0B1" stroke-opacity="0.55" stroke-width="1.5"/>
+  <text x="122" y="54" text-anchor="middle" fill="#F5A0B1" font-family="monospace" font-size="10.5" font-weight="600">Agent / Script</text>
+  <text x="122" y="72" text-anchor="middle" fill="#6b6b6b" font-family="sans-serif" font-size="8.5">Application code</text>
+
+  <rect x="222" y="28" width="160" height="60" rx="10" fill="url(#card)" stroke="#F5A0B1" stroke-opacity="0.55" stroke-width="1.5"/>
+  <text x="302" y="54" text-anchor="middle" fill="#F5A0B1" font-family="monospace" font-size="10.5" font-weight="600">CLI</text>
+  <text x="302" y="72" text-anchor="middle" fill="#6b6b6b" font-family="sans-serif" font-size="8.5">swyftpay fetch</text>
+
+  <rect x="402" y="28" width="160" height="60" rx="10" fill="url(#card)" stroke="#F5A0B1" stroke-opacity="0.55" stroke-width="1.5"/>
+  <text x="482" y="54" text-anchor="middle" fill="#F5A0B1" font-family="monospace" font-size="10.5" font-weight="600">Adapters</text>
+  <text x="482" y="72" text-anchor="middle" fill="#6b6b6b" font-family="sans-serif" font-size="8.5">LangChain / OpenAI</text>
+
+  <rect x="582" y="28" width="160" height="60" rx="10" fill="url(#card)" stroke="#F5A0B1" stroke-opacity="0.55" stroke-width="1.5"/>
+  <text x="662" y="54" text-anchor="middle" fill="#F5A0B1" font-family="monospace" font-size="10.5" font-weight="600">AgentWallet</text>
+  <text x="662" y="72" text-anchor="middle" fill="#6b6b6b" font-family="sans-serif" font-size="8.5">Derived keys + budgets</text>
+
+  <!-- SwyftPayClient shell (inner modules drawn later) -->
+  <rect x="48" y="128" width="624" height="170" rx="12" fill="url(#core)" stroke="url(#pp)" stroke-opacity="0.45" stroke-width="2"/>
+  <text x="360" y="154" text-anchor="middle" fill="#e8e8e8" font-family="monospace" font-size="13" font-weight="700">SwyftPayClient</text>
+
+  <!-- Lines: top row into client (stop just above top border y=128 so stroke is visible) -->
+  <g stroke="#B06AB3" stroke-width="1.75" fill="none" stroke-linecap="round" opacity="0.9">
+    <line x1="122" y1="88" x2="122" y2="124" marker-end="url(#arr)"/>
+    <line x1="302" y1="88" x2="302" y2="124" marker-end="url(#arr)"/>
+    <line x1="482" y1="88" x2="452" y2="124" marker-end="url(#arr)"/>
+    <line x1="662" y1="88" x2="582" y2="124" marker-end="url(#arr)"/>
+  </g>
+
+  <!-- Inner modules -->
+  <rect x="68" y="166" width="200" height="52" rx="8" fill="#0a0a0a" stroke="#B06AB3" stroke-opacity="0.45" stroke-width="1"/>
+  <text x="168" y="188" text-anchor="middle" fill="#B06AB3" font-family="monospace" font-size="9.5" font-weight="600">SpendPolicy</text>
+  <text x="168" y="204" text-anchor="middle" fill="#6b6b6b" font-family="sans-serif" font-size="7.5">host / amount / asset</text>
+
+  <rect x="208" y="166" width="200" height="52" rx="8" fill="#0a0a0a" stroke="#B06AB3" stroke-opacity="0.45" stroke-width="1"/>
+  <text x="308" y="188" text-anchor="middle" fill="#B06AB3" font-family="monospace" font-size="9.5" font-weight="600">ResponseCache</text>
+  <text x="308" y="204" text-anchor="middle" fill="#6b6b6b" font-family="sans-serif" font-size="7.5">TTL cache</text>
+
+  <rect x="348" y="166" width="200" height="52" rx="8" fill="#0a0a0a" stroke="#B06AB3" stroke-opacity="0.45" stroke-width="1"/>
+  <text x="448" y="188" text-anchor="middle" fill="#B06AB3" font-family="monospace" font-size="9.5" font-weight="600">RetryEngine</text>
+  <text x="448" y="204" text-anchor="middle" fill="#6b6b6b" font-family="sans-serif" font-size="7.5">backoff + loop guard</text>
+
+  <rect x="488" y="166" width="168" height="52" rx="8" fill="#0a0a0a" stroke="#B06AB3" stroke-opacity="0.45" stroke-width="1"/>
+  <text x="572" y="188" text-anchor="middle" fill="#B06AB3" font-family="monospace" font-size="9.5" font-weight="600">TransactionLogger</text>
+  <text x="572" y="204" text-anchor="middle" fill="#6b6b6b" font-family="sans-serif" font-size="7.5">.jsonl audit</text>
+
+  <!-- Inner flow lines (on top of inner rects bottom edge) -->
+  <g stroke="#B06AB3" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.75">
+    <line x1="168" y1="218" x2="168" y2="234" marker-end="url(#arr)"/>
+    <line x1="308" y1="218" x2="308" y2="234" marker-end="url(#arr)"/>
+    <line x1="448" y1="218" x2="448" y2="234" marker-end="url(#arr)"/>
+    <line x1="572" y1="218" x2="572" y2="234" marker-end="url(#arr)"/>
+    <line x1="448" y1="266" x2="512" y2="266" marker-end="url(#arr)"/>
+  </g>
+
+  <rect x="68" y="238" width="380" height="56" rx="9" fill="#080808" stroke="#F5A0B1" stroke-opacity="0.4" stroke-width="1.25"/>
+  <text x="258" y="262" text-anchor="middle" fill="#F5A0B1" font-family="monospace" font-size="10" font-weight="600">@x402-avm/fetch</text>
+  <text x="258" y="278" text-anchor="middle" fill="#6b6b6b" font-family="sans-serif" font-size="8.5">402 to pay to proof to retry</text>
+
+  <rect x="518" y="238" width="138" height="56" rx="9" fill="#080808" stroke="#F5A0B1" stroke-opacity="0.4" stroke-width="1.25"/>
+  <text x="587" y="262" text-anchor="middle" fill="#F5A0B1" font-family="monospace" font-size="10" font-weight="600">TrustScoring</text>
+  <text x="587" y="278" text-anchor="middle" fill="#6b6b6b" font-family="sans-serif" font-size="8.5">per-endpoint score</text>
+
+  <!-- Client bottom to external services (drawn after inner UI so lines stay visible) -->
+  <g stroke="#B06AB3" stroke-width="1.75" fill="none" stroke-linecap="round" opacity="0.9">
+    <line x1="202" y1="298" x2="202" y2="316" marker-end="url(#arr)"/>
+    <line x1="422" y1="298" x2="422" y2="316" marker-end="url(#arr)"/>
+    <line x1="642" y1="298" x2="642" y2="316" marker-end="url(#arr)"/>
+  </g>
+
+  <!-- External service boxes -->
+  <rect x="102" y="318" width="200" height="50" rx="9" fill="url(#card)" stroke="#F5A0B1" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="202" y="340" text-anchor="middle" fill="#F5A0B1" font-family="monospace" font-size="10" font-weight="600">Algorand Signer</text>
+  <text x="202" y="356" text-anchor="middle" fill="#6b6b6b" font-family="sans-serif" font-size="8">Ed25519 signing</text>
+
+  <rect x="322" y="318" width="200" height="50" rx="9" fill="url(#card)" stroke="#F5A0B1" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="422" y="340" text-anchor="middle" fill="#F5A0B1" font-family="monospace" font-size="10" font-weight="600">x402 Facilitator</text>
+  <text x="422" y="356" text-anchor="middle" fill="#6b6b6b" font-family="sans-serif" font-size="8">verify + settle</text>
+
+  <rect x="542" y="318" width="200" height="50" rx="9" fill="url(#card)" stroke="#F5A0B1" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="642" y="340" text-anchor="middle" fill="#F5A0B1" font-family="monospace" font-size="10" font-weight="600">Target API</text>
+  <text x="642" y="356" text-anchor="middle" fill="#6b6b6b" font-family="sans-serif" font-size="8">x402-protected HTTP</text>
+
+  <!-- Algorand settlement box -->
+  <rect x="220" y="468" width="480" height="62" rx="11" fill="url(#core)" stroke="url(#pp)" stroke-opacity="0.5" stroke-width="2"/>
+  <text x="460" y="496" text-anchor="middle" fill="#e8e8e8" font-family="monospace" font-size="12" font-weight="700">Algorand settlement</text>
+  <text x="460" y="514" text-anchor="middle" fill="#6b6b6b" font-family="sans-serif" font-size="8.5">on-chain transfer + indexer / algod</text>
+
+  <!-- Dashboard (left x=720; connectors stop at x=719) -->
+  <rect x="720" y="328" width="168" height="100" rx="10" fill="url(#card)" stroke="#B06AB3" stroke-opacity="0.55" stroke-width="1.5"/>
+  <text x="804" y="358" text-anchor="middle" fill="#B06AB3" font-family="monospace" font-size="10" font-weight="600">Dashboard</text>
+  <text x="804" y="378" text-anchor="middle" fill="#6b6b6b" font-family="sans-serif" font-size="8">import .jsonl</text>
+  <text x="804" y="394" text-anchor="middle" fill="#6b6b6b" font-family="sans-serif" font-size="8">analytics + trust</text>
+  <text x="804" y="410" text-anchor="middle" fill="#6b6b6b" font-family="sans-serif" font-size="8">CSV export</text>
+
+  <!-- Services to settlement: one polyline each, single arrow at settlement top -->
+  <g stroke="#B06AB3" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+    <polyline points="202,368 202,432 340,468" marker-end="url(#arr)"/>
+    <line x1="422" y1="368" x2="422" y2="468" marker-end="url(#arr)"/>
+    <polyline points="642,368 642,432 580,468" marker-end="url(#arr)"/>
+  </g>
+
+  <!-- Logger and Trust to Dashboard: route east of client, then into left edge mid-body (clear of title) -->
+  <g stroke="#B06AB3" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" stroke-dasharray="5 4">
+    <polyline points="572,210 700,210 700,392 719,392" marker-end="url(#arr)"/>
+    <polyline points="587,266 700,266 700,392 719,392" marker-end="url(#arr)"/>
+  </g>
+</svg>
